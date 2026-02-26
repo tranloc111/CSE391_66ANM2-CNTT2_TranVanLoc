@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TH2_BT1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .card {
+            max-width: 760px;
+            margin: auto;
+            border: 2px solid #222;
+            border-radius: 4px;
+            padding: 22px;
+            background: #fff;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 14px;
+
+        }
+
+        .row.two .field {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .row.full .field {
+            flex: 1 1 100%;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 4px;
+        }
+
+        .btn {
+            appearance: none;
+            border: 1px solid #ff0a0a;
+            background: #77ff00;
+            color: #000000;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ff0a0a;
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="card">
+        <h2 class="title">Get in touch with us by filling contact form below</h2>
+
+        <div class="row two">
+            <div class="field">
+                <input type="text" placeholder="* Enter your full name" />
+            </div>
+            <div class="field">
+                <input type="email" placeholder="* Enter your email address" />
+            </div>
+        </div>
+
+
+        <div class="row full">
+            <div class="field">
+                <input type="text" placeholder="* Enter your subject" />
+            </div>
+        </div>
+
+        <div class="row full">
+            <div class="field">
+                <textarea placeholder="* Your message here..."></textarea>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="btn" type="submit">Send message</button>
+            <span class="note">* Please fill all required form field, thanks!</span>
+        </div>
+
+    </section>
+</body>
+
+</html>

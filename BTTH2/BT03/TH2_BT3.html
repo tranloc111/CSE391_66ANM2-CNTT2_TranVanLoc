@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 03 - CSS Layout</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            padding: 40px 0;
+        }
+
+        .frame {
+            width: 95%;
+            margin: auto;
+            border: 2px solid #7dd3fc;
+            padding: 40px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 50px;
+        }
+
+        .content {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 280px;
+            background: #dbdbdb;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            font-weight: 60;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #837e7e;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .author {
+            font-size: 12px;
+            color: #414141;
+            font-weight: 60;
+        }
+
+        .role {
+            font-size: 11px;
+            color: #43b7ff;
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        .text p {
+            font-size: 13px;
+            color: #9f9f9f;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="frame">
+        <div class="title">
+            Wireframe Connects the Underlying<br>
+            Conceptual Structure
+        </div>
+
+        <div class="content">
+            <div class="card">
+                <h3>Wireframe Connects the Underlying Conceptual Structure</h3>
+                <p>
+                    Far far away, behind the word mountains, far from the countries
+                    Vokalia and Consonantia, there live the blind texts.
+                </p>
+
+                <div class="author">Louie Jie Huasay</div>
+                <div class="role">CEO, Founder</div>
+            </div>
+
+            <div class="text">
+                <p>
+                    Far far away, behind the word mountains, far from the countries
+                    Vokalia and Consonantia, there live the blind texts far from the
+                    countries Vokalia and Consonantia.
+                </p>
+
+                <p>
+                <h6>
+                    Far far away, behind the word mountains, far from the countries
+                    Vokalia and Consonantia, there live the blind texts far away,
+                    behind the word mountains.
+                </h6>
+                </p>
+
+                <p>
+                    Far far away, behind the word mountains, far from the countries
+                    Vokalia and Consonantia, there live the blind texts. Far away,
+                    behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
