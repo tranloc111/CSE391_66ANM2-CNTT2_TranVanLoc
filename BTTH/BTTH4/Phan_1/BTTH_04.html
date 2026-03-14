@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Bài 1.1 + 1.2-Bảng điểm sinh viên</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <h1>Bài 1.1-Bảng điểm sinh viên</h1>
+
+    <div class="card">
+        <div class="row">
+            <div class="field">
+                <label for="fullname">Họ và tên</label>
+                <input id="fullname" type="text" placeholder="Nhập họ tên..." autocomplete="off" />
+            </div>
+            <div class="field">
+                <label for="score">Điểm (0-10)</label>
+                <input id="score" type="number" inputmode="decimal" step="0.1" min="0" max="10"
+                    placeholder="Ví dụ: 7.5" />
+            </div>
+            <button id="btnAdd" type="button">Thêm</button>
+        </div>
+
+        <div class="controls">
+            <div class="field">
+                <label for="keyword">Tìm kiếm theo tên (realtime)</label>
+                <input id="keyword" type="text" placeholder="Nhập từ khóa... (không phân biệt hoa thường)" />
+            </div>
+            <div class="field">
+                <label for="rankFilter">Lọc theo xếp loại</label>
+                <select id="rankFilter">
+                    <option value="all">Tất cả</option>
+                    <option value="Giỏi">Giỏi</option>
+                    <option value="Khá">Khá</option>
+                    <option value="Trung bình">Trung bình</option>
+                    <option value="Yếu">Yếu</option>
+                </select>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:72px">STT</th>
+                    <th>Họ tên</th>
+                    <th id="thScore" class="clickable" style="width:140px">
+                        Điểm <span id="scoreArrow" class="arrow"></span>
+                    </th>
+                    <th style="width:140px">Xếp loại</th>
+                    <th style="width:120px">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+
+        <div id="stats" class="stats"></div>
+        <div class="muted">Mẹo: nhập điểm xong bấm <b>Enter</b> để thêm nhanh.</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

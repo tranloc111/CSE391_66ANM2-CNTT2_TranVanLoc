@@ -1,0 +1,163 @@
+:root {
+    --primary: #2563eb;
+    --danger: #dc2626;
+    --muted: #6b7280;
+    --row-warning: #fff7c2;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    margin: 24px;
+    color: #111827;
+    background: #fafafa;
+}
+
+h1 {
+    margin: 0 0 16px;
+    font-size: 22px;
+}
+
+.card {
+    background: #fff;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: end;
+    margin-bottom: 12px;
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 8px 0 0;
+}
+
+.controls .field {
+    min-width: 240px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-size: 14px;
+    color: #374151;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    height: 38px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    outline: none;
+    width: 240px;
+    background: #fff;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+button {
+    height: 38px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+thead th {
+    background: #f3f4f6;
+    font-weight: 700;
+    color: #111827;
+    user-select: none;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.actions button {
+    background: #f3f4f6;
+    color: #111827;
+    border: 1px solid var(--border);
+}
+
+.actions button:hover {
+    background: #e5e7eb;
+}
+
+.weak {
+    background: var(--row-warning);
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.stats {
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+.empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 16px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.arrow {
+    color: #6b7280;
+    margin-left: 6px;
+}

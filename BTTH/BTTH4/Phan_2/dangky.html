@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Bài 2.1 + 2.2-Validation Forms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="dangky.css" />
+    <script defer src="dangky.js"></script>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Đăng kí và đặt hàng</h1>
+        <nav class="tabs" role="tablist" aria-label="Form tabs">
+            <button class="tab active" data-target="regSection" aria-selected="true" role="tab">Đăng ký tài khoản
+                (2.1)</button>
+            <button class="tab" data-target="orderSection" aria-selected="false" role="tab">Đặt hàng (2.2)</button>
+        </nav>
+
+        <section id="regSection" class="panel" role="tabpanel" aria-labelledby="tab-reg">
+            <form id="regForm" novalidate>
+                <div class="grid">
+                    <div class="field">
+                        <label for="reg-fullname">Họ và tên <span class="req">*</span></label>
+                        <input id="reg-fullname" type="text" placeholder="VD: Trần Văn A" autocomplete="name" />
+                        <span class="error" id="reg-err-fullname"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="reg-email">Email <span class="req">*</span></label>
+                        <input id="reg-email" type="email" placeholder="name@domain.com" autocomplete="email" />
+                        <span class="error" id="reg-err-email"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="reg-phone">Số điện thoại <span class="req">*</span></label>
+                        <input id="reg-phone" type="tel" placeholder="0xxxxxxxxx" inputmode="numeric" />
+                        <span class="error" id="reg-err-phone"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="reg-password">Mật khẩu <span class="req">*</span></label>
+                        <input id="reg-password" type="password" placeholder="≥ 8 ký tự, có hoa, thường, số" />
+                        <span class="error" id="reg-err-password"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="reg-confirm">Xác nhận mật khẩu <span class="req">*</span></label>
+                        <input id="reg-confirm" type="password" placeholder="Nhập lại mật khẩu" />
+                        <span class="error" id="reg-err-confirm"></span>
+                    </div>
+
+                    <div class="field">
+                        <label>Giới tính <span class="req">*</span></label>
+                        <div class="radios">
+                            <label><input type="radio" name="reg-gender" value="Nam" /> Nam</label>
+                            <label><input type="radio" name="reg-gender" value="Nữ" /> Nữ</label>
+                            <label><input type="radio" name="reg-gender" value="Khác" /> Khác</label>
+                        </div>
+                        <span class="error" id="reg-err-gender"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="checkbox">
+                            <input id="reg-terms" type="checkbox" />
+                            Tôi đồng ý với điều khoản sử dụng <span class="req">*</span>
+                        </label>
+                        <span class="error" id="reg-err-terms"></span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit">Đăng ký</button>
+                    <button type="reset" class="secondary">Làm mới</button>
+                </div>
+            </form>
+
+            <div id="reg-success" class="success" hidden>
+                <b>Đăng ký thành công!</b> Xin chào, <span id="reg-successName"></span>.
+            </div>
+        </section>
+
+        <section id="orderSection" class="panel" hidden role="tabpanel" aria-labelledby="tab-order">
+            <form id="orderForm" novalidate>
+                <div class="grid">
+                    <div class="field">
+                        <label for="ord-product">Tên sản phẩm <span class="req">*</span></label>
+                        <select id="ord-product">
+                            <option value="">-- Chọn sản phẩm --</option>
+                            <option value="Áo">Áo</option>
+                            <option value="Quần">Quần</option>
+                            <option value="Giày">Giày</option>
+                        </select>
+                        <span class="hint">Giá sẽ tự tính theo sản phẩm đã chọn.</span>
+                        <span class="error" id="ord-err-product"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="ord-quantity">Số lượng (1-99) <span class="req">*</span></label>
+                        <input id="ord-quantity" type="number" inputmode="numeric" min="1" max="99" value="1" />
+                        <span class="error" id="ord-err-quantity"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="ord-date">Ngày giao hàng <span class="req">*</span></label>
+                        <input id="ord-date" type="date" />
+                        <span class="hint">Không quá khứ & không quá 30 ngày từ hôm nay.</span>
+                        <span class="error" id="ord-err-date"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="ord-address">Địa chỉ giao <span class="req">*</span></label>
+                        <input id="ord-address" type="text"
+                            placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành..." />
+                        <span class="error" id="ord-err-address"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="ord-note">Ghi chú (không bắt buộc, ≤ 200 ký tự)</label>
+                        <textarea id="ord-note" rows="3" placeholder="Yêu cầu thêm (nếu có)"></textarea>
+                        <div class="note-row">
+                            <span class="counter"><span id="ord-noteCount">0</span>/200</span>
+                            <span class="error" id="ord-err-note"></span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Phương thức thanh toán <span class="req">*</span></label>
+                        <div class="radios">
+                            <label><input type="radio" name="ord-payment" value="COD" /> COD</label>
+                            <label><input type="radio" name="ord-payment" value="Chuyển khoản" /> Chuyển khoản</label>
+                            <label><input type="radio" name="ord-payment" value="Ví điện tử" /> Ví điện tử</label>
+                        </div>
+                        <span class="error" id="ord-err-payment"></span>
+                    </div>
+                </div>
+
+                <div class="total">
+                    Tổng tiền: <b id="ord-totalPrice">0</b> đ
+                </div>
+
+                <div class="actions">
+                    <button type="submit" id="btnPlaceOrder">Đặt hàng</button>
+                    <button type="reset" class="secondary">Làm mới</button>
+                </div>
+            </form>
+
+            <div id="ord-confirmBox" class="confirm" hidden>
+                <h2>Xác nhận đặt hàng</h2>
+                <div id="ord-summary"></div>
+                <div class="actions">
+                    <button id="ord-btnConfirm" class="ok">Xác nhận</button>
+                    <button id="ord-btnCancel" class="secondary">Hủy</button>
+                </div>
+            </div>
+
+            <div id="ord-success" class="success" hidden>
+                Đặt hàng thành công! Cảm ơn bạn đã mua sắm.
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

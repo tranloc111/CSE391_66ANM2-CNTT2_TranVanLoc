@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Phần 3-BTVN 1 & 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="dangky.css" />
+    <script defer src="dangky.js"></script>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Phần 3-Bài tập về nhà</h1>
+
+        <nav class="tabs" role="tablist" aria-label="Homework tabs">
+            <button class="tab active" data-target="hw1Section" aria-selected="true" role="tab">BTVN 1 – Nâng cấp Form
+                Đăng ký</button>
+            <button class="tab" data-target="hw2Section" aria-selected="false" role="tab">BTVN 2 – Multi-step
+                Form</button>
+        </nav>
+
+        <section id="hw1Section" class="panel" role="tabpanel">
+            <form id="hw1Form" novalidate>
+                <div class="grid">
+                    <div class="field">
+                        <label for="hw1-fullname">Họ và tên <span class="req">*</span></label>
+                        <div class="with-counter">
+                            <input id="hw1-fullname" type="text" maxlength="50" placeholder="VD: Trần Văn A"
+                                autocomplete="name" />
+                            <span class="counter" id="hw1-nameCount">0</span><span class="counter-max">/50</span>
+                        </div>
+                        <span class="error" id="hw1-err-fullname"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="hw1-email">Email <span class="req">*</span></label>
+                        <input id="hw1-email" type="email" placeholder="name@domain.com" autocomplete="email" />
+                        <span class="error" id="hw1-err-email"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="hw1-password">Mật khẩu <span class="req">*</span></label>
+                        <div class="with-toggle">
+                            <input id="hw1-password" type="password" placeholder="≥ 8 ký tự, có hoa, thường, số" />
+                            <button class="toggle-btn" type="button" data-toggle="hw1-password"
+                                aria-label="Hiển thị/ẩn mật khẩu">👁</button>
+                        </div>
+                        <div class="strength" aria-live="polite">
+                            <div class="strength-bar" id="hw1-strengthBar"></div>
+                            <span class="strength-label" id="hw1-strengthLabel">Độ mạnh: —</span>
+                        </div>
+                        <span class="error" id="hw1-err-password"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="hw1-confirm">Xác nhận mật khẩu <span class="req">*</span></label>
+                        <div class="with-toggle">
+                            <input id="hw1-confirm" type="password" placeholder="Nhập lại mật khẩu" />
+                            <button class="toggle-btn" type="button" data-toggle="hw1-confirm"
+                                aria-label="Hiển thị/ẩn mật khẩu">👁</button>
+                        </div>
+                        <span class="error" id="hw1-err-confirm"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="checkbox">
+                            <input id="hw1-terms" type="checkbox" />
+                            Tôi đồng ý với điều khoản sử dụng <span class="req">*</span>
+                        </label>
+                        <span class="error" id="hw1-err-terms"></span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit">Đăng ký</button>
+                    <button type="reset" class="secondary">Làm mới</button>
+                </div>
+            </form>
+
+            <div id="hw1-success" class="success" hidden>
+                <b>Đăng ký thành công!</b> Xin chào, <span id="hw1-successName"></span>.
+            </div>
+        </section>
+
+        <section id="hw2Section" class="panel" role="tabpanel" hidden>
+            <div class="progress">
+                <div class="progress-bar" id="hw2-progressBar" style="width:33%"></div>
+                <div class="progress-label"><span id="hw2-stepText">Bước 1/3</span></div>
+            </div>
+
+            <form id="hw2Form" novalidate>
+                <div class="step" data-step="1">
+                    <h2>1- Thông tin cá nhân</h2>
+                    <div class="grid">
+                        <div class="field">
+                            <label for="hw2-fullname">Họ và tên <span class="req">*</span></label>
+                            <input id="hw2-fullname" type="text" placeholder="VD: Trần Văn A" />
+                            <span class="error" id="hw2-err-fullname"></span>
+                        </div>
+                        <div class="field">
+                            <label for="hw2-dob">Ngày sinh <span class="req">*</span></label>
+                            <input id="hw2-dob" type="date" />
+                            <span class="error" id="hw2-err-dob"></span>
+                        </div>
+                        <div class="field">
+                            <label>Giới tính <span class="req">*</span></label>
+                            <div class="radios">
+                                <label><input type="radio" name="hw2-gender" value="Nam" /> Nam</label>
+                                <label><input type="radio" name="hw2-gender" value="Nữ" /> Nữ</label>
+                                <label><input type="radio" name="hw2-gender" value="Khác" /> Khác</label>
+                            </div>
+                            <span class="error" id="hw2-err-gender"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" data-step="2" hidden>
+                    <h2> Bước 2 - Thông tin tài khoản</h2>
+                    <div class="grid">
+                        <div class="field">
+                            <label for="hw2-email">Email <span class="req">*</span></label>
+                            <input id="hw2-email" type="email" placeholder="name@domain.com" />
+                            <span class="error" id="hw2-err-email"></span>
+                        </div>
+                        <div class="field">
+                            <label for="hw2-password">Mật khẩu <span class="req">*</span></label>
+                            <input id="hw2-password" type="password" placeholder="≥ 8 ký tự, có hoa, thường, số" />
+                            <span class="error" id="hw2-err-password"></span>
+                        </div>
+                        <div class="field">
+                            <label for="hw2-confirm">Xác nhận mật khẩu <span class="req">*</span></label>
+                            <input id="hw2-confirm" type="password" placeholder="Nhập lại mật khẩu" />
+                            <span class="error" id="hw2-err-confirm"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" data-step="3" hidden>
+                    <h2>Bước 3 - Xác nhận</h2>
+                    <div class="summary" id="hw2-summary">—</div>
+                </div>
+
+                <div class="actions">
+                    <button type="button" class="secondary" id="hw2-prev" disabled>◀ Quay lại</button>
+                    <button type="button" id="hw2-next">Tiếp theo ▶</button>
+                    <button type="submit" id="hw2-submit" hidden>Hoàn tất</button>
+                </div>
+            </form>
+
+            <div id="hw2-success" class="success" hidden>
+                <b>Đăng ký nhiều bước thành công!</b> Dữ liệu của bạn đã được ghi nhận.
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
